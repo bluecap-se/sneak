@@ -1,48 +1,74 @@
-# python-console-snake
+# Sneak
 
-> Lightweight, configurable snake game running in the console
+[![Build Status](https://travis-ci.org/bluecap-se/sneak.svg)](https://travis-ci.org/bluecap-se/sneak)
+[![Dependency Status](https://gemnasium.com/bluecap-se/sneak.svg)](https://gemnasium.com/bluecap-se/sneak)
+[![PyPI version](https://badge.fury.io/py/sneak.svg)](http://badge.fury.io/py/sneak)
 
-![Screenshot](http://s2.postimg.org/tzpt8rs09/snake.png)
+Snake game in the terminal.
 
-### Usage
+## Install
 
-1. `git clone git@github.com:tancredi/python-console-snake.git`
-2. `cd python-console-snake`
-3. `python snake`
+### Using a package manager
 
-### Options
-
-Run `python snake -help` for list of options
-
+```console
+$ pip install sneak
 ```
-Usage: snake [options]
+
+### From source
+
+```console
+$ git clone https://github.com/bluecap-se/sneak.git
+$ cd sneak
+$ pip install -r requirements.txt
+$ pip install -e .
+```
+
+## Usage
+
+```console
+$ sneak -h
+
+Sneak - snake game in the terminal
+
+Usage:
+      sneak [options]
 
 Options:
-  -h, --help            show this help message and exit
-  -s SIZE, --size=SIZE  Game size (s | m | l)
-  -f, --fullscreen      Play fullscreen
-  -t THEME, --theme=THEME
-                        Game theme (classic | minimal | jungle | custom)
+  -h, --help                Output this help and exit
+  --version                 Output version and exit
+
 ```
 
-### Themes
 
-You can select a theme by running `snake -t [ theme_name ]`
+## Run tests
 
-The default theme is `classic`. Other available themes are the following:
+### Regular tests
 
-#### `minimal`
+```console
+$ pip install -r requirements_test.txt
+$ py.test
+```
 
-![Minimal theme screenshot](http://s15.postimg.org/9qnoxbauj/snake_minimal.png)
+### Watch for changes
 
-#### `jungle`
+To run the tests continuously, run the test command with the watch or follow flag `-f`:
 
-![Jungle theme screenshot](http://s9.postimg.org/f37kp89lr/snake_jungle.png)
+```console
+$ py.test -f
+```
 
-### Contribute
+### Test coverage
 
-Add your theme to `snake/themes.py`, pull requests are welcome!
+```console
+$ coverage run --source sneak -m py.test
+$ coverage html
+$ open htmlcov/index.html
+```
 
-### Licence
+## License
 
-Copyright (c) 2014 Tancredi Trugenberger. - Released under the MIT license
+Published under [MIT License](https://github.com/bluecap-se/sneak/blob/master/LICENSE).
+
+## Thanks to
+
+This project was inspired by [python-console-snake](https://github.com/tancredi/python-console-snake).
