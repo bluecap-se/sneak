@@ -35,10 +35,13 @@ setup(
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Console',
+        'Intended Audience :: Developers',
+        'Intended Audience :: End Users/Desktop',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Operating System :: MacOS',
         'Operating System :: POSIX',
         'Programming Language :: Python :: 2 :: Only',
+        'Topic :: Games/Entertainment :: Arcade',
     ]
 )
