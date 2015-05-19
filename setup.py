@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import snake
+import sneak
 
 try:
     from setuptools import setup
@@ -18,20 +18,20 @@ with open('requirements.txt') as f:
 
 
 setup(
-    name=snake.__title__,
-    description='Terminal Snake',
+    name=sneak.__title__,
+    description='Terminal snake in Python',
     long_description=readme,
-    version=snake.__version__,
+    version=sneak.__version__,
     author='bluecap-se',
     author_email='hello@bluecap.se',
-    url='https://github.com/bluecap-se/snake',
+    url='https://github.com/bluecap-se/sneak',
     license='MIT',
     zip_safe=False,
     platforms='any',
-    packages=['snake'],
+    packages=['sneak'],
     install_requires=requirements,
-    scripts=['bin/snake'],
-    keywords=['snake', 'game'],
+    scripts=['bin/sneak'],
+    keywords=['sneak', 'game', 'snake'],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Console',

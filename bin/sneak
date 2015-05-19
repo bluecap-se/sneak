@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from snake.cli import main
+from sneak.cli import main
 
 
 if __name__ == '__main__':
