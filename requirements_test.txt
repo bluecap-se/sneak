@@ -1,0 +1,3 @@
+coverage==4.0a5
+pytest==2.7.1
+pytest-pep8==1.0.6
