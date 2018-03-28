@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 
 import graphics
 import theme
@@ -22,4 +23,5 @@ def run():
     except KeyboardInterrupt:
         exit()
 
-run()
+if __name__ == '__main__':
+    run()

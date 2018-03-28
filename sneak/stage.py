@@ -1,4 +1,6 @@
+# -*- coding: utf-8 -*-
 
+import curses
 import console
 import math
 import config
@@ -11,9 +13,9 @@ def init():
 
     available_size = (width, height) = console.getTerminalSize()
 
-    chosen_size = config.game_sizes[parser.options.size]
+    chosen_size = config.game_sizes[parser.options.get('size')]
 
-    if parser.options.fullscreen:
+    if parser.options.get('fullscreen'):
         width = available_size[0] / 2 - 2
         height = available_size[1]
     else:
@@ -41,4 +43,15 @@ def init():
         "top": int(math.floor(-height / 2)),
     }
 
-    chosen_theme = themes.game_themes[parser.options.theme]
+    chosen_theme = {
+        'colors': {
+            'default': (curses.COLOR_WHITE, curses.COLOR_BLACK),
+            'bg': (curses.COLOR_WHITE, curses.COLOR_WHITE),
+            'snake': (curses.COLOR_RED, curses.COLOR_GREEN),
+            'apple': (curses.COLOR_RED, curses.COLOR_RED),
+            'border': (curses.COLOR_WHITE, curses.COLOR_YELLOW),
+            'lives': (curses.COLOR_RED, curses.COLOR_RED),
+        },
+        'tiles': {
+        }
+    }

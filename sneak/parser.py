@@ -1,3 +1,18 @@
+# -*- coding: utf-8 -*-
+
+"""
+Sneak: A terminal snake game
+
+Usage: run.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  -s SIZE, --size=SIZE  Game size (s | m | l)
+  -f, --fullscreen      Play fullscreen
+
+"""
+
+from docopt import docopt
 
 from optparse import OptionParser
 
@@ -7,18 +22,9 @@ options = None
 def init():
     global options
 
-    parser = OptionParser()
+    arguments = docopt(__doc__, version='TODO', options_first=True)
 
-    parser.add_option("-s", "--size",
-                      action="store", dest="size", default='m',
-                      help="Game size (s | m | l)")
-
-    parser.add_option("-f", "--fullscreen",
-                      action="store_true", dest="fullscreen", default=False,
-                      help="Play fullscreen")
-
-    parser.add_option("-t", "--theme",
-                      action="store", dest="theme", default='classic',
-                      help="Game theme (classic | minimal | jungle | custom)")
-
-    (options, args) = parser.parse_args()
+    options = {
+        'size': arguments.get('--size', False) or 'm',
+        'fullscreen': arguments.get('--fullscreen', False) or False,
+    }
