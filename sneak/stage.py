@@ -31,6 +31,11 @@ def init():
 
     size = (width, height)
 
+    # Check that the game will fit insize available space
+    if chosen_size[0] > width or chosen_size[1] > height:
+        print 'Chose a smaller size or increase terminal window.'
+        exit()
+
     padding_x = int(math.floor(available_size[0] - width) / 4)
     padding_y = int(math.floor(available_size[1] - height) / 2)
 
