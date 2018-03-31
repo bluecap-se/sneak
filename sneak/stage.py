@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import curses
-import console
+import terminal
 import math
 import config
 import parser
@@ -11,7 +11,7 @@ import themes
 def init():
     global size, width, height, padding, boundaries, chosen_theme
 
-    available_size = (width, height) = console.getTerminalSize()
+    available_size = (width, height) = terminal.get_terminal_size()
 
     chosen_size = config.game_sizes[parser.options.get('size')]
 
