@@ -42,10 +42,10 @@ def init():
     padding = (padding_y, padding_x, padding_y, padding_x)
 
     boundaries = {
-        "bottom": int(math.floor(height / 2)),
-        "left": int(math.floor(-width / 2)),
-        "right": int(math.floor(width / 2)),
-        "top": int(math.floor(-height / 2)),
+        'bottom': int(math.floor(height / 2)),
+        'left': int(math.floor(-width / 2)),
+        'right': int(math.floor(width / 2)),
+        'top': int(math.floor(-height / 2)),
     }
 
     chosen_theme = {

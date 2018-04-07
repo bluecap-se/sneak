@@ -13,6 +13,6 @@ Options:
 """
 
 
-__title__ = 'sneak'
+__title__ = 'sneak-game'
 __version__ = '0.1.0'
 __license__ = 'MIT'
