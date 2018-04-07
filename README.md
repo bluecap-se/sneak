@@ -3,6 +3,7 @@
 [![Travis](https://img.shields.io/travis/bluecap-se/sneak.svg)](https://travis-ci.org/bluecap-se/sneak)
 [![Dependency Status](https://gemnasium.com/bluecap-se/sneak.svg)](https://gemnasium.com/bluecap-se/sneak)
 [![PyPI](https://img.shields.io/pypi/v/sneak-game.svg)](https://pypi.python.org/pypi/sneak-game)
+[!PyPI - Python Version](https://img.shields.io/badge/python-2.7-blue.svg)
 
 Snake game in the terminal.
 
