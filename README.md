@@ -10,14 +10,14 @@ Snake game in the terminal.
 
 ### Using a package manager
 
-```console
+```bash
 $ pip install sneak
 ```
 
 ### From source
 
-```console
-$ git clone https://github.com/bluecap-se/sneak.git
+```bash
+$ git clone git@github.com:bluecap-se/sneak.git
 $ cd sneak
 $ pip install -r requirements.txt
 $ pip install -e .
@@ -25,7 +25,7 @@ $ pip install -e .
 
 ## Usage
 
-```console
+```bash
 $ sneak -h
 
 Sneak - snake game in the terminal
@@ -44,7 +44,7 @@ Options:
 
 ### Regular tests
 
-```console
+```bash
 $ pip install -r requirements_test.txt
 $ py.test
 ```
@@ -53,7 +53,7 @@ $ py.test
 
 To run the tests continuously, run the test command with the watch or follow flag `-f`:
 
-```console
+```bash
 $ py.test -f
 ```
 
