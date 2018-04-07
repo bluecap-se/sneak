@@ -1,8 +1,8 @@
-# Sneak
+# Sneak Game
 
-[![Build Status](https://travis-ci.org/bluecap-se/sneak.svg)](https://travis-ci.org/bluecap-se/sneak)
+[![Travis](https://img.shields.io/travis/bluecap-se/sneak.svg)](https://travis-ci.org/bluecap-se/sneak)
 [![Dependency Status](https://gemnasium.com/bluecap-se/sneak.svg)](https://gemnasium.com/bluecap-se/sneak)
-[![PyPI version](https://badge.fury.io/py/sneak.svg)](http://badge.fury.io/py/sneak)
+[![PyPI](https://img.shields.io/pypi/v/sneak-game.svg)](https://pypi.python.org/pypi/sneak-game)
 
 Snake game in the terminal.
 
