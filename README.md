@@ -11,6 +11,8 @@
 
 Snake game in the terminal.
 
+![Game screenshot](/screenshot.png)
+
 ## Install
 
 ### Using a package manager
