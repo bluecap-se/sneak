@@ -52,7 +52,7 @@ def moveSnake():
     global grow, lastPos
 
     last_unchanged = None
-    lastPos = (snake[len(snake)-1][0], snake[len(snake)-1][1])
+    lastPos = (snake[len(snake) - 1][0], snake[len(snake) - 1][1])
     for i, part in enumerate(snake):
         if i == 0:
             x = part[0] + speed * direction[0]

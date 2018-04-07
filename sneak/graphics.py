@@ -30,7 +30,7 @@ def drawScore():
         (-stage.height / 2) - 1,
         score_formatted,
         theme.get_color('border')
-        )
+    )
 
 
 def drawLives():
@@ -42,14 +42,14 @@ def drawLives():
             (-stage.height / 2) - 1,
             theme.get_tile('lives'),
             theme.get_color('lives')
-            )
+        )
         posx += 1
         drawTile(
             posx,
             (-stage.height / 2) - 1,
             theme.get_tile('border-h'),
             theme.get_color('border')
-            )
+        )
 
 
 def drawSnake():
@@ -59,14 +59,15 @@ def drawSnake():
             part[1],
             theme.get_tile('snake-body'),
             theme.get_color('snake')
-            )
+        )
+
     # Clean last tile
     drawTile(
         game.lastPos[0],
         game.lastPos[1],
         theme.get_tile('bg'),
         theme.get_color('bg')
-        )
+    )
 
 
 def drawApples():
@@ -76,7 +77,7 @@ def drawApples():
             apple[1],
             theme.get_tile('apple'),
             theme.get_color('apple')
-            )
+        )
 
 
 def drawGame():

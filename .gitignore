@@ -61,6 +61,7 @@ target/
 
 # Own
 
+.pytest_cache/
 example/
 profiler/
 .idea
