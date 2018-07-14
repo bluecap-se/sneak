@@ -1,0 +1,13 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+docopt = "==0.6.2"
+"e1839a8" = {editable = true, path = "."}
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"

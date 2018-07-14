@@ -2,7 +2,6 @@
 
 [![Travis](https://img.shields.io/travis/bluecap-se/sneak.svg)](https://travis-ci.org/bluecap-se/sneak)
 [![Coverage](https://img.shields.io/coveralls/github/bluecap-se/sneak.svg)](https://coveralls.io/github/bluecap-se/sneak?branch=develop)
-[![Dependency Status](https://gemnasium.com/bluecap-se/sneak.svg)](https://gemnasium.com/bluecap-se/sneak)
 [![PyPI](https://img.shields.io/pypi/v/sneak-game.svg)](https://pypi.python.org/pypi/sneak-game)
 ![Status](https://img.shields.io/badge/status-stable-brightgreen.svg)
 ![PyPI - Python Version](https://img.shields.io/badge/python-2.7-blue.svg)
@@ -17,17 +16,22 @@ Snake game in the terminal.
 
 ### Using a package manager
 
+*Not published yet.*
+
 ```bash
-$ pip install sneak
+$ pip install sneak-game
 ```
 
 ### From source
 
+This project relies on [Pipenv](https://docs.pipenv.org/), ensure that it is installed with `pip install pipenv` first.
+
 ```bash
 $ git clone git@github.com:bluecap-se/sneak.git
 $ cd sneak
-$ pip install -r requirements.txt
-$ pip install -e .
+$ pipenv install --two
+$ pipenv shell
+$ pipenv install -e .
 ```
 
 ## Usage
