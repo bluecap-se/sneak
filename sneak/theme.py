@@ -26,8 +26,8 @@ def get_tile(key):
 
 def get_colors_map():
     out = {}
-
     i = 1
+
     for col in theme['colors'].iteritems():
         curses.init_pair(i, col[1][0], col[1][1])
         out[col[0]] = i

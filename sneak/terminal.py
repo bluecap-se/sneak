@@ -20,16 +20,20 @@ def get_terminal_size():
     """
     current_os = platform.system()
     tuple_xy = None
+
     if current_os == 'Windows':
         tuple_xy = _get_terminal_size_windows()
-        if tuple_xy is None:
+
+        if not tuple_xy:
             tuple_xy = _get_terminal_size_tput()
-            # needed for window's python in cygwin's xterm!
+
+    # needed for window's python in cygwin's xterm!
     if current_os in ['Linux', 'Darwin'] or current_os.startswith('CYGWIN'):
         tuple_xy = _get_terminal_size_linux()
-    if tuple_xy is None:
-        print "default"
+
+    if not tuple_xy:
         tuple_xy = (80, 25)      # default value
+
     return tuple_xy
 
 
@@ -74,7 +78,9 @@ def _get_terminal_size_linux():
             return cr
         except:
             pass
+
     cr = ioctl_GWINSZ(0) or ioctl_GWINSZ(1) or ioctl_GWINSZ(2)
+
     if not cr:
         try:
             fd = os.open(os.ctermid(), os.O_RDONLY)
@@ -82,9 +88,11 @@ def _get_terminal_size_linux():
             os.close(fd)
         except:
             pass
+
     if not cr:
         try:
             cr = (os.environ['LINES'], os.environ['COLUMNS'])
         except:
             return None
+
     return int(cr[1]), int(cr[0])

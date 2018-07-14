@@ -9,7 +9,7 @@ import stage
 
 def exit():
     graphics.exit()
-    print 'Come back soon!'
+    print 'Thank you, come again!'
 
 
 def run():
