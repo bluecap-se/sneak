@@ -4,7 +4,8 @@ import curses
 import math
 
 import config
-import terminal
+
+from terminal import Terminal
 
 
 class TerminalTooSmallError(Exception):
@@ -22,7 +23,7 @@ class Stage:
 
     def __init__(self, options={}):
 
-        available_size = (width, height) = terminal.get_terminal_size()
+        available_size = (width, height) = Terminal().get_size()
 
         chosen_size = config.game_sizes[options.get('size', 'm')]
 
@@ -55,20 +56,6 @@ class Stage:
             'left': int(math.floor(-width / 2)),
             'right': int(math.floor(width / 2)),
             'top': int(math.floor(-height / 2)),
-        }
-
-        self.chosen_theme = {
-            'colors': {
-                'default': (curses.COLOR_WHITE, curses.COLOR_BLACK),
-                'bg': (curses.COLOR_WHITE, curses.COLOR_WHITE),
-                'snake': (curses.COLOR_RED, curses.COLOR_GREEN),
-                'apple': (curses.COLOR_RED, curses.COLOR_RED),
-                'border': (curses.COLOR_WHITE, curses.COLOR_YELLOW),
-                'lives': (curses.COLOR_RED, curses.COLOR_RED),
-                'text': (curses.COLOR_BLACK, curses.COLOR_WHITE),
-            },
-            'tiles': {
-            }
         }
 
     def validate(self):
@@ -104,4 +91,16 @@ class Stage:
 
     @property
     def chosen_theme(self):
-        return self.chosen_theme
+        return {
+            'colors': {
+                'default': (curses.COLOR_WHITE, curses.COLOR_BLACK),
+                'bg': (curses.COLOR_WHITE, curses.COLOR_WHITE),
+                'snake': (curses.COLOR_RED, curses.COLOR_GREEN),
+                'apple': (curses.COLOR_RED, curses.COLOR_RED),
+                'border': (curses.COLOR_WHITE, curses.COLOR_YELLOW),
+                'lives': (curses.COLOR_RED, curses.COLOR_RED),
+                'text': (curses.COLOR_BLACK, curses.COLOR_WHITE),
+            },
+            'tiles': {
+            }
+        }
