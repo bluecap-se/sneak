@@ -45,7 +45,6 @@ def update_controls():
             init()
 
 
-
 last_update = None
 playing = False
 state = 0

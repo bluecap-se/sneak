@@ -56,7 +56,7 @@ class Stage:
         Raises `TerminalTooSmallError` error on validation failure.
         """
         if self.chosen_size[0] > self.width or \
-            self.chosen_size[1] > self.height:
+           self.chosen_size[1] > self.height:
             raise TerminalTooSmallError('Chose a smaller size or increase terminal window.')
 
     @property
