@@ -39,15 +39,13 @@ $ pipenv install -e .
 ```bash
 $ sneak -h
 
-Sneak - snake game in the terminal
+Sneak: A terminal snake game
 
-Usage:
-      sneak [options]
+Usage: run.py [options]
 
 Options:
-  -h, --help                Output this help and exit
-  --version                 Output version and exit
-
+  -h, --help            show this help message and exit
+  -s SIZE, --size=SIZE  Game size (s | m | l)
 ```
 
 

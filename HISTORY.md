@@ -2,7 +2,8 @@
 
 ## Coming up...
 
-- Refactor: Rewrote terminal into classes.
+- Cleanup: Removed fullscreen mode.
+- Refactor: Rewrote terminal into class.
 - Refactor: Rewrote stage and theme into classes.
 - Feature: Updated package manager.
 

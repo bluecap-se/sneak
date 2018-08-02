@@ -25,19 +25,15 @@ class Stage:
 
         chosen_size = config.game_sizes[options.get('size', 'm')]
 
-        if options.get('fullscreen', False):
-            width = available_size[0] / 2 - 2
+        if chosen_size[0] > available_size[0] / 2:
+            width = available_size[0] / 2
+        else:
+            width = chosen_size[0]
+
+        if chosen_size[1] > available_size[1]:
             height = available_size[1]
         else:
-            if chosen_size[0] > available_size[0] / 2:
-                width = available_size[0] / 2
-            else:
-                width = chosen_size[0]
-
-            if chosen_size[1] > available_size[1]:
-                height = available_size[1]
-            else:
-                height = chosen_size[1]
+            height = chosen_size[1]
 
         padding_x = int(math.floor(available_size[0] - width) / 4)
         padding_y = int(math.floor(available_size[1] - height) / 2)
