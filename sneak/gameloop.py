@@ -48,6 +48,7 @@ def update_controls():
 last_update = None
 playing = False
 state = 0
+global_stage = None
 
 
 def update():
@@ -97,10 +98,13 @@ def stop():
     playing = False
 
 
-def init(stage):
-    global state
+def init(stage=None):
+    global state, global_stage
 
-    game.init(stage)
+    stg = stage or global_stage
+    global_stage = stg
+
+    game.init(stg)
     graphics.drawGame()
     state = 0
 
