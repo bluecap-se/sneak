@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import game
 import curses
+
+import game
 
 from theme import Theme
 from stage import Stage
@@ -32,7 +33,7 @@ def drawScore():
         (stage.width / 2) - 1,
         (-stage.height / 2) - 1,
         score_formatted,
-        theme.get_color('border')
+        theme.get_color('text')
     )
 
 
@@ -118,7 +119,7 @@ def drawBorders():
 
 
 def drawText():
-    color = theme.get_color('border')
+    color = theme.get_color('text')
     drawTile((stage.width / 2) - 4, (-stage.height / 2) - 1, "score:", color)
     drawTile((-stage.width / 2), (-stage.height / 2) - 1, "lives:", color)
     drawTile(-5, (stage.height / 2), " Press Q to quit ", color)

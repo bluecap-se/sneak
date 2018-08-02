@@ -37,7 +37,7 @@ def checkCatch():
         return
 
     for i, apple in enumerate(apples):
-        if (snake[0][0]) == apple[0] and (snake[0][1]) == apple[1]:
+        if snake[0][0] == apple[0] and snake[0][1] == apple[1]:
             eatApple(i)
 
 
@@ -90,7 +90,7 @@ def reset():
 
     apples_count += int(math.floor(getGameArea() / config.apple_domain))
 
-    for i in range(0, apples_count):
+    for i in xrange(0, apples_count):
         spawnApple()
 
 
