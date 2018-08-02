@@ -18,8 +18,6 @@ class Stage:
     width = None
     height = None
     padding = None
-    boundaries = None
-    chosen_theme = None
 
     def __init__(self, options={}):
 
@@ -41,22 +39,14 @@ class Stage:
             else:
                 height = chosen_size[1]
 
+        padding_x = int(math.floor(available_size[0] - width) / 4)
+        padding_y = int(math.floor(available_size[1] - height) / 2)
+
         self.size = (width, height)
         self.chosen_size = chosen_size
         self.width = width
         self.height = height
-
-        padding_x = int(math.floor(available_size[0] - width) / 4)
-        padding_y = int(math.floor(available_size[1] - height) / 2)
-
         self.padding = (padding_y, padding_x, padding_y, padding_x)
-
-        self.boundaries = {
-            'bottom': int(math.floor(height / 2)),
-            'left': int(math.floor(-width / 2)),
-            'right': int(math.floor(width / 2)),
-            'top': int(math.floor(-height / 2)),
-        }
 
     def validate(self):
         """
@@ -87,7 +77,12 @@ class Stage:
 
     @property
     def boundaries(self):
-        return self.boundaries
+        return {
+            'bottom': int(math.floor(self.height / 2)),
+            'left': int(math.floor(-self.width / 2)),
+            'right': int(math.floor(self.width / 2)),
+            'top': int(math.floor(-self.height / 2)),
+        }
 
     @property
     def chosen_theme(self):
