@@ -1,21 +1,13 @@
 # -*- coding: utf-8 -*-
 
-"""
-Sneak: A terminal snake game
-
-Usage: run.py [options]
-
-Options:
-  -h, --help            Show this help message and exit
-  -s SIZE, --size=SIZE  Game size (s | m | l)
-
-"""
 from docopt import docopt
+
+from __init__ import __doc__, __version__
 
 
 def init():
 
-    arguments = docopt(__doc__, version='TODO', options_first=True)
+    arguments = docopt(__doc__, version='v{}'.format(__version__), options_first=True)
 
     options = {
         'size': arguments.get('--size', False) or 'm',

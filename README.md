@@ -40,11 +40,12 @@ $ sneak -h
 
 Sneak: A terminal snake game
 
-Usage: run.py [options]
+Usage: sneak [options]
 
 Options:
-  -h, --help            Show this help message and exit
   -s SIZE, --size=SIZE  Game size (s | m | l)
+  -h, --help            Show this help message and exit
+  -v, --version         Show version and exit
 ```
 
 ## License
