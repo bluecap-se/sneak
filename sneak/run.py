@@ -4,7 +4,7 @@ import sys
 
 import graphics
 import gameloop
-import parser
+import cli
 import stage
 
 
@@ -15,7 +15,7 @@ def exit():
 
 def run():
     try:
-        options = parser.init()
+        options = cli.init()
         stg = stage.Stage(options)
 
         # Raises TerminalTooSmallError if the chosen
