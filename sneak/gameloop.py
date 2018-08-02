@@ -1,10 +1,50 @@
 # -*- coding: utf-8 -*-
 
+import __main__
 import time
-import graphics
-import game
+
 import config
-import controls
+import game
+import graphics
+
+
+def update_controls():
+    key = graphics.screen.getch()
+    keys = config.keys
+
+    if key > 0:
+        if key == keys['DOWN']:
+            if game.direction[1] == -1:
+                return
+
+            game.direction = (0, 1)
+
+        elif key == keys['LEFT']:
+            if game.direction[0] == 1:
+                return
+
+            game.direction = (-1, 0)
+
+        elif key == keys['RIGHT']:
+            if game.direction[0] == -1:
+                return
+
+            game.direction = (1, 0)
+
+        elif key == keys['UP']:
+            if game.direction[1] == 1:
+                return
+
+            game.direction = (0, -1)
+
+        elif key == keys['Q']:
+            __main__.exit()
+            exit()
+
+        elif state == 1 and key == keys['ENTER']:
+            init()
+
+
 
 last_update = None
 playing = False
@@ -38,14 +78,14 @@ def step():
         last_update = time.time()
 
 
-def start():
+def start(stage):
     global playing, state
 
     playing = True
 
-    init()
+    init(stage)
     while playing:
-        controls.update()
+        update_controls()
         if state == 0:
             step()
         elif state == 1:
@@ -58,10 +98,10 @@ def stop():
     playing = False
 
 
-def init():
+def init(stage):
     global state
 
-    game.init()
+    game.init(stage)
     graphics.drawGame()
     state = 0
 

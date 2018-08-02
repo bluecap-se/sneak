@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import stage
 import gameloop
 import math
 import random
@@ -16,8 +15,10 @@ score = 0
 lives = 3
 
 
-def init():
-    global score, lives
+def init(stg):
+    global score, lives, stage
+
+    stage = stg
 
     reset()
     score = 0
@@ -132,12 +133,12 @@ def checkPositionAllowed():
     x = snake[0][0]
     y = snake[0][1]
 
-    for i in range(1, len(snake) - 1):
+    for i in xrange(1, len(snake) - 1):
         if x == snake[i][0] and y == snake[i][1]:
             collides_with_body = True
             break
 
-    if (collides_with_body or isOutOfBoundaries(x, y)):
+    if collides_with_body or isOutOfBoundaries(x, y):
         gameloop.reset()
         lives -= 1
         if lives == 0:

@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import stage
 import game
-import theme
 import curses
+
+from theme import Theme
+from stage import Stage
+
 
 screen = None
 
@@ -20,8 +22,8 @@ def drawTile(x, y, tile='', color=None):
 
 
 def drawGameOver():
-    drawTile(-4, -1, " GAME OVER ", theme.get_color('border'))
-    drawTile(-7, 1, " Press ENTER to restart ", theme.get_color('border'))
+    drawTile(-4, -1, " GAME OVER ", theme.get_color('text'))
+    drawTile(-7, 1, " Press ENTER to restart ", theme.get_color('text'))
 
 
 def drawScore():
@@ -130,8 +132,8 @@ def update():
     drawLives()
 
 
-def init():
-    global screen
+def init(stg):
+    global screen, theme, stage
 
     screen = curses.initscr()
     curses.noecho()
@@ -139,6 +141,9 @@ def init():
     curses.curs_set(0)
     curses.start_color()
     screen.nodelay(1)
+
+    theme = Theme()
+    stage = stg
 
 
 def exit():

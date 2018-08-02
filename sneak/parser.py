@@ -28,3 +28,5 @@ def init():
         'size': arguments.get('--size', False) or 'm',
         'fullscreen': arguments.get('--fullscreen', False) or False,
     }
+
+    return options
