@@ -8,7 +8,6 @@ class Theme:
 
     colors_map = {}
     theme = None
-    default_color = None
 
     def __init__(self):
         self.theme = stage.Stage().chosen_theme

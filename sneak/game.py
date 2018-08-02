@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
-import gameloop
 import math
 import random
+
+import gameloop
 import config
 
 direction = (0, 0)
