@@ -7,6 +7,11 @@ import config
 import game
 import graphics
 
+last_update = None
+playing = False
+state = 0
+global_stage = None
+
 
 def update_controls():
     key = graphics.screen.getch()
@@ -44,17 +49,9 @@ def update_controls():
         elif state == 1 and key == keys['ENTER']:
             init()
 
-
-last_update = None
-playing = False
-state = 0
-global_stage = None
-
-
 def update():
     game.update()
     graphics.update()
-
 
 def step():
     global last_update
@@ -77,7 +74,6 @@ def step():
         update()
         last_update = time.time()
 
-
 def start(stage):
     global playing, state
 
@@ -89,14 +85,12 @@ def start(stage):
         if state == 0:
             step()
         elif state == 1:
-            graphics.drawGameOver()
-
+            graphics.draw_game_over()
 
 def stop():
     global playing, frame, last_update
 
     playing = False
-
 
 def init(stage=None):
     global state, global_stage
@@ -105,10 +99,9 @@ def init(stage=None):
     global_stage = stg
 
     game.init(stg)
-    graphics.drawGame()
+    graphics.draw_game()
     state = 0
-
 
 def reset():
     game.reset()
-    graphics.drawGame()
+    graphics.draw_game()
