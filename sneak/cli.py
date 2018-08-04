@@ -1,26 +1,16 @@
+# -*- coding: utf-8 -*-
 
-import graphics
-import theme
-import gameloop
-import game
-import parser
-import stage
+from docopt import docopt
+
+from __init__ import __doc__, __version__
 
 
-def exit():
-    graphics.exit()
+def init():
 
+    arguments = docopt(__doc__, version='v{}'.format(__version__), options_first=True)
 
-def run():
-    try:
-        parser.init()
-        stage.init()
-        graphics.init()
-        theme.init()
-        game.reset()
-        gameloop.start()
+    options = {
+        'size': arguments.get('--size', False) or 'm',
+    }
 
-    except KeyboardInterrupt:
-        exit()
-
-run()
+    return options

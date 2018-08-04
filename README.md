@@ -1,68 +1,49 @@
-# Sneak
+# Sneak Game
 
-[![Build Status](https://travis-ci.org/bluecap-se/sneak.svg)](https://travis-ci.org/bluecap-se/sneak)
-[![Dependency Status](https://gemnasium.com/bluecap-se/sneak.svg)](https://gemnasium.com/bluecap-se/sneak)
-[![PyPI version](https://badge.fury.io/py/sneak.svg)](http://badge.fury.io/py/sneak)
+[![Travis](https://img.shields.io/travis/bluecap-se/sneak.svg)](https://travis-ci.org/bluecap-se/sneak)
+[![PyPI](https://img.shields.io/pypi/v/sneak-game.svg)](https://pypi.python.org/pypi/sneak-game)
+![Status](https://img.shields.io/badge/status-stable-brightgreen.svg)
+![PyPI - Python Version](https://img.shields.io/badge/python-2.7-blue.svg)
+![Platform](https://img.shields.io/badge/platform-win%20%7C%20lin%20%7C%20osx-lightgrey.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 Snake game in the terminal.
+
+![Game screenshot](/screenshot.png)
 
 ## Install
 
 ### Using a package manager
 
-```console
-$ pip install sneak
+```bash
+$ pip install sneak-game
 ```
 
 ### From source
 
-```console
-$ git clone https://github.com/bluecap-se/sneak.git
+This project relies on [Pipenv](https://docs.pipenv.org/), ensure that it is installed with `pip install pipenv` first.
+
+```bash
+$ git clone git@github.com:bluecap-se/sneak.git
 $ cd sneak
-$ pip install -r requirements.txt
-$ pip install -e .
+$ pipenv install --two
+$ pipenv shell
+$ pipenv install -e .
 ```
 
 ## Usage
 
-```console
+```bash
 $ sneak -h
 
-Sneak - snake game in the terminal
+Sneak: A terminal snake game
 
-Usage:
-      sneak [options]
+Usage: sneak [options]
 
 Options:
-  -h, --help                Output this help and exit
-  --version                 Output version and exit
-
-```
-
-
-## Run tests
-
-### Regular tests
-
-```console
-$ pip install -r requirements_test.txt
-$ py.test
-```
-
-### Watch for changes
-
-To run the tests continuously, run the test command with the watch or follow flag `-f`:
-
-```console
-$ py.test -f
-```
-
-### Test coverage
-
-```console
-$ coverage run --source sneak -m py.test
-$ coverage html
-$ open htmlcov/index.html
+  -s SIZE, --size=SIZE  Game size (s | m | l)
+  -h, --help            Show this help message and exit
+  -v, --version         Show version and exit
 ```
 
 ## License

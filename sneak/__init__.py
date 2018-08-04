@@ -1,18 +1,16 @@
 # -*- coding: utf-8 -*-
 
 """
-Sneak - snake game in the terminal
+Sneak: A terminal snake game
 
-Usage:
-      sneak [options]
+Usage: sneak [options]
 
 Options:
-  -h, --help                Output this help and exit
-  --version                 Output version and exit
-
+  -s SIZE, --size=SIZE  Game size (s | m | l)
+  -h, --help            Show this help message and exit
+  -v, --version         Show version and exit
 """
 
-
-__title__ = 'sneak'
+__title__ = 'sneak-game'
 __version__ = '0.1.0'
 __license__ = 'MIT'

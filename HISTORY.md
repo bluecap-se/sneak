@@ -5,4 +5,7 @@
 
 ## 0.1.0
 
-- First release!
+- Cleanup: Removed fullscreen mode.
+- Refactor: Rewrote terminal into class.
+- Refactor: Rewrote stage and theme into classes.
+- Feature: Updated package manager.
