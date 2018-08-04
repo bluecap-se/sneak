@@ -1,27 +1,30 @@
 # -*- coding: utf-8 -*-
 
-import graphics
-import theme
-import gameloop
-import parser
-import stage
+import sys
 
+import cli
 
-def exit():
-    graphics.exit()
-    print 'Thank you, come again!'
+from stage import stage, TerminalTooSmallError
+from game import graphics, gameloop
 
 
 def run():
     try:
-        parser.init()
-        stage.init()
-        graphics.init()
-        theme.init()
+        options = cli.init()
+        stage.create(options)
+
+        # Raises TerminalTooSmallError if the chosen
+        # size is larger than terminal window
+        stage.validate()
+
+        graphics.start()
         gameloop.start()
 
+    except TerminalTooSmallError as e:
+        sys.exit('ERROR: {}'.format(e.message))
+
     except KeyboardInterrupt:
-        exit()
+        graphics.exit()
 
 if __name__ == '__main__':
     run()

@@ -1,7 +1,6 @@
 # Sneak Game
 
 [![Travis](https://img.shields.io/travis/bluecap-se/sneak.svg)](https://travis-ci.org/bluecap-se/sneak)
-[![Coverage](https://img.shields.io/coveralls/github/bluecap-se/sneak.svg)](https://coveralls.io/github/bluecap-se/sneak?branch=develop)
 [![PyPI](https://img.shields.io/pypi/v/sneak-game.svg)](https://pypi.python.org/pypi/sneak-game)
 ![Status](https://img.shields.io/badge/status-stable-brightgreen.svg)
 ![PyPI - Python Version](https://img.shields.io/badge/python-2.7-blue.svg)
@@ -39,41 +38,14 @@ $ pipenv install -e .
 ```bash
 $ sneak -h
 
-Sneak - snake game in the terminal
+Sneak: A terminal snake game
 
-Usage:
-      sneak [options]
+Usage: sneak [options]
 
 Options:
-  -h, --help                Output this help and exit
-  --version                 Output version and exit
-
-```
-
-
-## Run tests
-
-### Regular tests
-
-```bash
-$ pip install -r requirements_test.txt
-$ py.test
-```
-
-### Watch for changes
-
-To run the tests continuously, run the test command with the watch or follow flag `-f`:
-
-```bash
-$ py.test -f
-```
-
-### Test coverage
-
-```console
-$ coverage run --source sneak -m py.test
-$ coverage html
-$ open htmlcov/index.html
+  -s SIZE, --size=SIZE  Game size (s | m | l)
+  -h, --help            Show this help message and exit
+  -v, --version         Show version and exit
 ```
 
 ## License

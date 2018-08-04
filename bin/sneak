@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import sys
-from sneak.cli import main
+from sneak.run import run
 
 
 if __name__ == '__main__':
-    sys.exit(main())
+    run()
