@@ -21,6 +21,7 @@ setup(
     name=sneak.__title__,
     description='Terminal snake in Python',
     long_description=readme,
+    long_description_content_type='text/markdown',
     version=sneak.__version__,
     author='bluecap-se',
     author_email='hello@bluecap.se',
