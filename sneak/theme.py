@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import curses
-import stage
+
+from stage import stage
 
 
 class Theme:
@@ -10,7 +11,7 @@ class Theme:
     theme = None
 
     def __init__(self):
-        self.theme = stage.Stage().chosen_theme
+        self.theme = stage.chosen_theme
         self.colors_map = self.get_colors_map()
 
     def get_color(self, key):

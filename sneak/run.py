@@ -2,34 +2,29 @@
 
 import sys
 
-import graphics
-import gameloop
 import cli
-import stage
 
-
-def exit():
-    graphics.exit()
-    print 'Thank you, come again!'
+from stage import stage, TerminalTooSmallError
+from game import graphics, gameloop
 
 
 def run():
     try:
         options = cli.init()
-        stg = stage.Stage(options)
+        stage.create(options)
 
         # Raises TerminalTooSmallError if the chosen
         # size is larger than terminal window
-        stg.validate()
+        stage.validate()
 
-        graphics.init(stg)
-        gameloop.start(stg)
+        graphics.start()
+        gameloop.start()
 
-    except stage.TerminalTooSmallError as e:
+    except TerminalTooSmallError as e:
         sys.exit('ERROR: {}'.format(e.message))
 
     except KeyboardInterrupt:
-        exit()
+        graphics.exit()
 
 if __name__ == '__main__':
     run()

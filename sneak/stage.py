@@ -19,7 +19,7 @@ class Stage:
     height = None
     padding = None
 
-    def __init__(self, options={}):
+    def create(self, options={}):
 
         available_size = (width, height) = Terminal().get_size()
 
@@ -95,3 +95,5 @@ class Stage:
             'tiles': {
             }
         }
+
+stage = Stage()
