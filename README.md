@@ -15,8 +15,6 @@ Snake game in the terminal.
 
 ### Using a package manager
 
-*Not published yet.*
-
 ```bash
 $ pip install sneak-game
 ```
