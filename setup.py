@@ -13,8 +13,6 @@ with open('README.md') as f:
     readme = f.read()
 with open('HISTORY.md') as f:
     history = f.read()
-with open('requirements.txt') as f:
-    requirements = f.read().splitlines()
 
 
 setup(
@@ -30,7 +28,7 @@ setup(
     zip_safe=False,
     platforms='any',
     packages=['sneak'],
-    install_requires=requirements,
+    install_requires=['docopt==0.6.2'],
     scripts=['bin/sneak'],
     keywords=['sneak', 'game', 'snake'],
     classifiers=[
