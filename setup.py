@@ -1,18 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+from setuptools import setup
+
 import sneak
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
 
-
-with open('README.md') as f:
+with open('README.md', 'r') as f:
     readme = f.read()
-with open('HISTORY.md') as f:
-    history = f.read()
 
 
 setup(
