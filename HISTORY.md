@@ -1,7 +1,10 @@
 # Changelog
 
-## Coming up...
+## Next
 
+### 0.1.2
+
+- Bugfix: Readme markdown fix for pypi.
 
 ## 0.1.1
 
