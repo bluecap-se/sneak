@@ -9,7 +9,7 @@
 
 Snake game in the terminal.
 
-![Game screenshot](/screenshot.png)
+![Game screenshot](https://raw.githubusercontent.com/bluecap-se/sneak/master/screenshot.png)
 
 ## Install
 
