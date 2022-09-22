@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 """
 Sneak: A terminal snake game
 
@@ -11,6 +9,6 @@ Options:
   -v, --version         Show version and exit
 """
 
-__title__ = 'sneak-game'
-__version__ = '0.1.2'
-__license__ = 'MIT'
+__title__ = "sneak-game"
+__version__ = "0.2.0"
+__license__ = "MIT"

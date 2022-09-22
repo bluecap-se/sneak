@@ -1,15 +1,11 @@
-# -*- coding: utf-8 -*-
-
 import __main__
 import curses
 import math
 import time
 import random
-
-import config
-
-from theme import Theme
-from stage import stage
+from sneak import config
+from sneak.theme import Theme
+from sneak.stage import stage
 
 
 class Game:
@@ -44,14 +40,14 @@ class Game:
     def eat_apple(self, i):
         self.apples.pop(i)
         self.spawn_apple()
-        self.grow += config.food_values['apple']
+        self.grow += config.food_values["apple"]
         self.score += 1
 
     def move_snake(self):
         last_unchanged = None
         self.lastPos = (
             self.snake[len(self.snake) - 1][0],
-            self.snake[len(self.snake) - 1][1]
+            self.snake[len(self.snake) - 1][1],
         )
 
         for i, part in enumerate(self.snake):
@@ -70,8 +66,8 @@ class Game:
             self.grow -= 1
 
     def get_game_area(self):
-        w = math.fabs(stage.boundaries['right'] - stage.boundaries['left'])
-        h = math.fabs(stage.boundaries['top'] - stage.boundaries['bottom'])
+        w = math.fabs(stage.boundaries["right"] - stage.boundaries["left"])
+        h = math.fabs(stage.boundaries["top"] - stage.boundaries["bottom"])
 
         return int(math.floor(w * h))
 
@@ -85,15 +81,15 @@ class Game:
 
         self.apples_count += int(math.floor(self.get_game_area() / config.apple_domain))
 
-        for i in xrange(0, self.apples_count):
+        for i in range(0, self.apples_count):
             self.spawn_apple()
 
     def spawn_apple(self):
         if len(self.apples) >= self.get_game_area():
             return
 
-        x = random.randrange(stage.boundaries['left'], stage.boundaries['right'])
-        y = random.randrange(stage.boundaries['top'], stage.boundaries['bottom'])
+        x = random.randrange(stage.boundaries["left"], stage.boundaries["right"])
+        y = random.randrange(stage.boundaries["top"], stage.boundaries["bottom"])
 
         position_free = True
 
@@ -111,10 +107,10 @@ class Game:
             self.spawn_apple()
 
     def is_out_of_boundaries(self, x, y):
-        if x < stage.boundaries['left'] or x > stage.boundaries['right'] - 1:
+        if x < stage.boundaries["left"] or x > stage.boundaries["right"] - 1:
             return True
 
-        elif y < stage.boundaries['top'] or y > stage.boundaries['bottom'] - 1:
+        elif y < stage.boundaries["top"] or y > stage.boundaries["bottom"] - 1:
             return True
 
         return False
@@ -124,7 +120,7 @@ class Game:
         x = self.snake[0][0]
         y = self.snake[0][1]
 
-        for i in xrange(1, len(self.snake) - 1):
+        for i in range(1, len(self.snake) - 1):
             if x == self.snake[i][0] and y == self.snake[i][1]:
                 collides_with_body = True
                 break
@@ -159,8 +155,7 @@ class Gameloop:
         else:
             elapsed = 0
 
-        if not elapsed \
-           or elapsed > config.frame_len:
+        if not elapsed or elapsed > config.frame_len:
 
             if not elapsed:
                 until_next = config.frame_len
@@ -190,35 +185,35 @@ class Gameloop:
         keys = config.keys
 
         if key > 0:
-            if key == keys['DOWN']:
+            if key == keys["DOWN"]:
                 if game.direction[1] == -1:
                     return
 
                 game.direction = (0, 1)
 
-            elif key == keys['LEFT']:
+            elif key == keys["LEFT"]:
                 if game.direction[0] == 1:
                     return
 
                 game.direction = (-1, 0)
 
-            elif key == keys['RIGHT']:
+            elif key == keys["RIGHT"]:
                 if game.direction[0] == -1:
                     return
 
                 game.direction = (1, 0)
 
-            elif key == keys['UP']:
+            elif key == keys["UP"]:
                 if game.direction[1] == 1:
                     return
 
                 game.direction = (0, -1)
 
-            elif key == keys['Q']:
+            elif key == keys["Q"]:
                 self.playing = False
                 graphics.exit()
 
-            elif self.state == 1 and key == keys['ENTER']:
+            elif self.state == 1 and key == keys["ENTER"]:
                 self.init()
 
     def reset(self):
@@ -242,19 +237,20 @@ class Graphics:
         # Needs to be done after `initscr()` call
         self.theme = Theme()
 
-    def draw_tile(self, x, y, tile='', color=None):
-        color = color or self.theme.get_color('default')
+    def draw_tile(self, x, y, tile="", color=None):
+        color = color or self.theme.get_color("default")
 
-        x = x * 2 + stage.padding[3] * 2 + stage.width / 2
+        x = int(x * 2 + stage.padding[3] * 2 + stage.width / 2)
         y += stage.padding[0] + stage.height / 2
+        y = int(y)
 
         self.screen.addstr(y, x, tile, color)
-        if (len(tile) < 2):
+        if len(tile) < 2:
             self.screen.addstr(y, x + 1, tile, color)
 
     def draw_game_over(self):
-        self.draw_tile(-4, -1, ' GAME OVER ', self.theme.get_color('text'))
-        self.draw_tile(-7, 1, ' Press ENTER to restart ', self.theme.get_color('text'))
+        self.draw_tile(-4, -1, " GAME OVER ", self.theme.get_color("text"))
+        self.draw_tile(-7, 1, " Press ENTER to restart ", self.theme.get_color("text"))
 
     def draw_score(self):
         score_formatted = str(game.score).zfill(2)
@@ -263,26 +259,26 @@ class Graphics:
             (stage.width / 2) - 1,
             (-stage.height / 2) - 1,
             score_formatted,
-            self.theme.get_color('text')
+            self.theme.get_color("text"),
         )
 
     def draw_lives(self):
         posx = (-stage.width / 2) + 3
 
-        for x in xrange(1, game.lives + 1):
+        for x in range(1, game.lives + 1):
             posx += 1
             self.draw_tile(
                 posx,
                 (-stage.height / 2) - 1,
-                self.theme.get_tile('lives'),
-                self.theme.get_color('lives')
+                self.theme.get_tile("lives"),
+                self.theme.get_color("lives"),
             )
             posx += 1
             self.draw_tile(
                 posx,
                 (-stage.height / 2) - 1,
-                self.theme.get_tile('border-h'),
-                self.theme.get_color('border')
+                self.theme.get_tile("border-h"),
+                self.theme.get_color("border"),
             )
 
     def draw_snake(self):
@@ -290,16 +286,16 @@ class Graphics:
             self.draw_tile(
                 part[0],
                 part[1],
-                self.theme.get_tile('snake-body'),
-                self.theme.get_color('snake')
+                self.theme.get_tile("snake-body"),
+                self.theme.get_color("snake"),
             )
 
         # Clean last tile
         self.draw_tile(
             game.lastPos[0],
             game.lastPos[1],
-            self.theme.get_tile('bg'),
-            self.theme.get_color('bg')
+            self.theme.get_tile("bg"),
+            self.theme.get_color("bg"),
         )
 
     def draw_apples(self):
@@ -307,35 +303,37 @@ class Graphics:
             self.draw_tile(
                 apple[0],
                 apple[1],
-                self.theme.get_tile('apple'),
-                self.theme.get_color('apple')
+                self.theme.get_tile("apple"),
+                self.theme.get_color("apple"),
             )
 
     def draw_game(self):
-        for y in range(stage.boundaries['top'], stage.boundaries['bottom']):
-            for x in range(stage.boundaries['left'], stage.boundaries['right']):
-                self.draw_tile(x, y, self.theme.get_tile('bg'), self.theme.get_color('bg'))
+        for y in range(stage.boundaries["top"], stage.boundaries["bottom"]):
+            for x in range(stage.boundaries["left"], stage.boundaries["right"]):
+                self.draw_tile(
+                    x, y, self.theme.get_tile("bg"), self.theme.get_color("bg")
+                )
 
         self.draw_borders()
         self.draw_text()
 
     def draw_borders(self):
-        tile_v = self.theme.get_tile('border-v')
-        tile_h = self.theme.get_tile('border-h')
-        tile_c = self.theme.get_tile('border-c')
-        color = self.theme.get_color('border')
+        tile_v = self.theme.get_tile("border-v")
+        tile_h = self.theme.get_tile("border-h")
+        tile_c = self.theme.get_tile("border-c")
+        color = self.theme.get_color("border")
 
-        x_left = stage.boundaries['left']
-        x_right = stage.boundaries['right']
+        x_left = stage.boundaries["left"]
+        x_right = stage.boundaries["right"]
 
-        y_top = stage.boundaries['top']
-        y_bottom = stage.boundaries['bottom']
+        y_top = stage.boundaries["top"]
+        y_bottom = stage.boundaries["bottom"]
 
-        for y in xrange(y_top, y_bottom):
+        for y in range(y_top, y_bottom):
             self.draw_tile(x_left - 1, y, tile_v, color)
             self.draw_tile(x_right, y, tile_v, color)
 
-        for x in xrange(x_left, x_right):
+        for x in range(x_left, x_right):
             self.draw_tile(x, y_top - 1, tile_h, color)
             self.draw_tile(x, y_bottom, tile_h, color)
 
@@ -345,11 +343,11 @@ class Graphics:
         self.draw_tile(x_right, y_bottom, tile_c, color)
 
     def draw_text(self):
-        color = self.theme.get_color('text')
+        color = self.theme.get_color("text")
 
-        self.draw_tile((stage.width / 2) - 4, (-stage.height / 2) - 1, 'score:', color)
-        self.draw_tile((-stage.width / 2), (-stage.height / 2) - 1, 'lives:', color)
-        self.draw_tile(-5, (stage.height / 2), ' Press Q to quit ', color)
+        self.draw_tile((stage.width / 2) - 4, (-stage.height / 2) - 1, "score:", color)
+        self.draw_tile((-stage.width / 2), (-stage.height / 2) - 1, "lives:", color)
+        self.draw_tile(-5, (stage.height / 2), " Press Q to quit ", color)
 
     def update(self):
         self.draw_snake()
@@ -363,6 +361,7 @@ class Graphics:
         curses.echo()
         curses.nocbreak()
         curses.endwin()
+
 
 game = Game()
 gameloop = Gameloop()

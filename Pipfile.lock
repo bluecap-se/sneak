@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "6d94f2211154b91469db0bd29fc36bb47d78babab428a46491939cab1c84228d"
+            "sha256": "86af3d16c70240ffb0e12f20bbbb50af4ad4e3e87b7b3af4e2869434d37d2a3d"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.7"
+            "python_version": "3.10"
         },
         "sources": [
             {
@@ -24,6 +24,10 @@
             "version": "==0.6.2"
         },
         "e1839a8": {
+            "editable": true,
+            "path": "."
+        },
+        "sneak-game": {
             "editable": true,
             "path": "."
         }

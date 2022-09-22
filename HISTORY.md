@@ -2,6 +2,10 @@
 
 ## Next
 
+### 0.2.0
+
+- Feature: Updated to Python 3.
+
 ### 0.1.2
 
 - Bugfix: Readme markdown fix for pypi.

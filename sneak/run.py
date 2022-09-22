@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
-
 import sys
-
-import cli
-
-from stage import stage, TerminalTooSmallError
-from game import graphics, gameloop
+from sneak import cli
+from sneak.stage import stage, TerminalTooSmallError
+from sneak.game import graphics, gameloop
 
 
 def run():
@@ -21,10 +17,11 @@ def run():
         gameloop.start()
 
     except TerminalTooSmallError as e:
-        sys.exit('ERROR: {}'.format(e.message))
+        sys.exit("ERROR: {}".format(e.message))
 
     except KeyboardInterrupt:
         graphics.exit()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     run()
