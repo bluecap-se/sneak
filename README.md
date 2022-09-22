@@ -1,6 +1,5 @@
 # Sneak Game
 
-[![Travis](https://img.shields.io/travis/bluecap-se/sneak.svg)](https://travis-ci.org/bluecap-se/sneak)
 [![PyPI](https://img.shields.io/pypi/v/sneak-game.svg)](https://pypi.python.org/pypi/sneak-game)
 ![Status](https://img.shields.io/badge/status-stable-brightgreen.svg)
 ![Python Version](https://img.shields.io/badge/python-3.10-blue.svg)
