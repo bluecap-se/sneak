@@ -1,14 +1,11 @@
-# -*- coding: utf-8 -*-
-
 import os
+import platform
 import shlex
 import struct
-import platform
 import subprocess
 
 
 class Terminal:
-
     def get_size(self):
         """
         Gets terminal window size
@@ -23,18 +20,18 @@ class Terminal:
         current_os = platform.system()
         tuple_xy = None
 
-        if current_os == 'Windows':
+        if current_os == "Windows":
             tuple_xy = self.get_size_windows()
 
             if not tuple_xy:
                 tuple_xy = self.get_size_tput()
 
         # needed for window's python in cygwin's xterm!
-        if current_os in ['Linux', 'Darwin'] or current_os.startswith('CYGWIN'):
+        if current_os in ["Linux", "Darwin"] or current_os.startswith("CYGWIN"):
             tuple_xy = self.get_size_linux()
 
         if not tuple_xy:
-            tuple_xy = (80, 25)      # default value
+            tuple_xy = (80, 25)  # default value
 
         return tuple_xy
 
@@ -42,6 +39,7 @@ class Terminal:
     def get_size_windows():
         try:
             from ctypes import windll, create_string_buffer
+
             # stdin handle is -10
             # stdout handle is -11
             # stderr handle is -12
@@ -49,9 +47,19 @@ class Terminal:
             csbi = create_string_buffer(22)
             res = windll.kernel32.GetConsoleScreenBufferInfo(h, csbi)
             if res:
-                (bufx, bufy, curx, cury, wattr,
-                 left, top, right, bottom,
-                 maxx, maxy) = struct.unpack("hhhhHhhhhhh", csbi.raw)
+                (
+                    bufx,
+                    bufy,
+                    curx,
+                    cury,
+                    wattr,
+                    left,
+                    top,
+                    right,
+                    bottom,
+                    maxx,
+                    maxy,
+                ) = struct.unpack("hhhhHhhhhhh", csbi.raw)
                 sizex = right - left + 1
                 sizey = bottom - top + 1
                 return sizex, sizey
@@ -63,8 +71,8 @@ class Terminal:
         # get terminal width
         # src: http://stackoverflow.com/questions/263890/how-do-i-find-the-width-height-of-a-terminal-window
         try:
-            cols = int(subprocess.check_call(shlex.split('tput cols')))
-            rows = int(subprocess.check_call(shlex.split('tput lines')))
+            cols = int(subprocess.check_call(shlex.split("tput cols")))
+            rows = int(subprocess.check_call(shlex.split("tput lines")))
             return (cols, rows)
         except:
             pass
@@ -76,8 +84,7 @@ class Terminal:
                 import fcntl
                 import termios
 
-                cr = struct.unpack('hh',
-                                   fcntl.ioctl(fd, termios.TIOCGWINSZ, '1234'))
+                cr = struct.unpack("hh", fcntl.ioctl(fd, termios.TIOCGWINSZ, "1234"))
                 return cr
             except:
                 pass
@@ -94,7 +101,7 @@ class Terminal:
 
         if not cr:
             try:
-                cr = (os.environ['LINES'], os.environ['COLUMNS'])
+                cr = (os.environ["LINES"], os.environ["COLUMNS"])
             except:
                 return None
 
